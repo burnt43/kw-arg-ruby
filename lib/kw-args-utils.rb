@@ -4,7 +4,7 @@ module Kernel
 
     method(caller_method_name).parameters.each_with_object({}) do |type_name_pair, hash|
       type, name = type_name_pair
-      next unless type == :key
+      next unless type == :key || :keyreq
 
       hash[name] = caller_binding.local_variable_get(name)
     end
